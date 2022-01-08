@@ -6,10 +6,8 @@ def desaturation(pngName):
     for xpixel in range (x):
         for ypixel in range (y) :
             r, g, b, sample = image1.getpixel((xpixel, ypixel))
-            if 127.5 > (r+g+b)/3:
-                image1.putpixel((xpixel,ypixel),(255,255,255))
-            else:
-                image1.putpixel((xpixel,ypixel),(0,0,0))         
+            c=(127.5 > (r+g+b)/3)*255
+            image1.putpixel((xpixel,ypixel),(c,c,c))    
         #print(xpixel/x*100, '%')
     newname = 'new' + pngName
     image1.save(newname)
